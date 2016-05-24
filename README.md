@@ -18,7 +18,7 @@ Installation
 composer require symfony-bundles/event-queue-bundle
 ```
 
-* Enable the bundles in the kernel:
+* Enable the bundle in the kernel:
 
 ``` php
 public function registerBundles()
@@ -43,6 +43,17 @@ sb_event_queue:
 ```
 
 * Configure the redis client in your config.yml. Read more [QueueBundle Installation][queue-bundle-link].
+
+For example, defaults configuration:
+``` yml
+sb_queue:
+    server:
+        redis:
+            parameters:
+                - "tcp://localhost?alias=queue"
+            options:
+                prefix: "sb_queue:"
+```
 
 [package-link]: https://packagist.org/packages/symfony-bundles/event-queue-bundle
 [license-link]: https://github.com/symfony-bundles/event-queue-bundle/blob/master/LICENSE
