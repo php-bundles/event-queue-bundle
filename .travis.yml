@@ -19,10 +19,10 @@ before_install:
     - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then phpenv config-rm xdebug.ini; fi
     - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;
     - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then phpenv rehash; fi;
+    - composer self-update
     - if [ "$SYMFONY_VERSION" != "" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; fi;
 
 install:
-    - composer self-update
     - composer install
 
 script:
