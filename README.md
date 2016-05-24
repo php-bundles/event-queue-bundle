@@ -1,6 +1,8 @@
 Symfony EventQueue Bundle
 =========================
 
+[![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
+
 [![Build Status][testing-image]][testing-link]
 [![Scrutinizer Code Quality][scrutinizer-code-quality-image]][scrutinizer-code-quality-link]
 [![Code Coverage][code-coverage-image]][code-coverage-link]
@@ -49,6 +51,8 @@ sb_event_queue:
 [testing-image]: https://travis-ci.org/symfony-bundles/event-queue-bundle.svg?branch=master
 [stable-image]: https://poser.pugx.org/symfony-bundles/event-queue-bundle/v/stable
 [downloads-image]: https://poser.pugx.org/symfony-bundles/event-queue-bundle/downloads
+[sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/696a4b02-8d4c-45ca-924c-c61f8f06ed9e
+[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/696a4b02-8d4c-45ca-924c-c61f8f06ed9e/big.png
 [code-coverage-link]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/?branch=master
 [code-coverage-image]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/badges/coverage.png?b=master
 [scrutinizer-code-quality-link]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/?branch=master
