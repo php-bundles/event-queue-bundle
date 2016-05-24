@@ -1,8 +1,8 @@
 <?php
 
-namespace SymfonyBundles\EventQueueBundle\EventSubscriber;
+namespace SymfonyBundles\EventQueueBundle\Tests\Service\EventSubscriber;
 
-use SymfonyBundles\EventQueueBundle\Event\ExampleEvent;
+use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class ExampleSubscriber
 {

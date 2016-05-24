@@ -4,8 +4,8 @@ namespace SymfonyBundles\EventQueueBundle\Tests\Service;
 
 use SymfonyBundles\EventQueueBundle\Tests\TestCase;
 use SymfonyBundles\EventQueueBundle\Service\Exception;
-use SymfonyBundles\EventQueueBundle\Event\ExampleEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class DispatcherTest extends TestCase
 {

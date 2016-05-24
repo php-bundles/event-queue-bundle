@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBundles\EventQueueBundle\Event;
+namespace SymfonyBundles\EventQueueBundle\Tests\Service\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
