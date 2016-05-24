@@ -1,0 +1,56 @@
+Symfony EventQueue Bundle
+=========================
+
+[![Build Status][testing-image]][testing-link]
+[![Scrutinizer Code Quality][scrutinizer-code-quality-image]][scrutinizer-code-quality-link]
+[![Code Coverage][code-coverage-image]][code-coverage-link]
+[![Total Downloads][downloads-image]][package-link]
+[![Latest Stable Version][stable-image]][package-link]
+[![License][license-image]][license-link]
+
+Installation
+------------
+* Require the bundle with composer:
+
+``` bash
+composer require symfony-bundles/event-queue-bundle
+```
+
+* Enable the bundles in the kernel:
+
+``` php
+public function registerBundles()
+{
+    $bundles = [
+        // ...
+        new SymfonyBundles\EventQueueBundle\SymfonyBundlesEventQueueBundle(),
+        // ...
+    ];
+    ...
+}
+```
+
+* Configure the EventQueue bundle in your config.yml.
+
+Defaults configuration:
+``` yml
+sb_event_queue:
+    service_name: "event_queue"
+    default_name: "event:default"
+    storage_path: "%kernel.cache_dir%/event-queue-daemon.%s.pid"
+```
+
+* Configure the redis client in your config.yml. Read more [QueueBundle Installation][queue-bundle-link].
+
+[package-link]: https://packagist.org/packages/symfony-bundles/event-queue-bundle
+[license-link]: https://github.com/symfony-bundles/event-queue-bundle/blob/master/LICENSE
+[license-image]: https://poser.pugx.org/symfony-bundles/event-queue-bundle/license
+[testing-link]: https://travis-ci.org/symfony-bundles/event-queue-bundle
+[testing-image]: https://travis-ci.org/symfony-bundles/event-queue-bundle.svg?branch=master
+[stable-image]: https://poser.pugx.org/symfony-bundles/event-queue-bundle/v/stable
+[downloads-image]: https://poser.pugx.org/symfony-bundles/event-queue-bundle/downloads
+[code-coverage-link]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/?branch=master
+[code-coverage-image]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/badges/coverage.png?b=master
+[scrutinizer-code-quality-link]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/?branch=master
+[scrutinizer-code-quality-image]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/badges/quality-score.png?b=master
+[queue-bundle-link]: https://github.com/symfony-bundles/queue-bundle#installation

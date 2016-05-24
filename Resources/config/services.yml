@@ -1,0 +1,17 @@
+parameters:
+    sb_event_queue.class: SymfonyBundles\EventQueueBundle\Service\Dispatcher
+
+services:
+    # Services
+    sb_event_queue:
+        class: "%sb_event_queue.class%"
+        calls:
+            - [setName, ["%sb_event_queue.default_name%"]]
+            - [setStorage, ["@sb_queue.storage"]]
+            - [setDispatcher, ["@event_dispatcher"]]
+
+    # Subscribers
+    sb_event_queue.subscriber.example:
+        class: SymfonyBundles\EventQueueBundle\EventSubscriber\ExampleSubscriber
+        tags:
+            - { name: kernel.event_listener, event: sb_event_queue.example, method: hashMessage }
