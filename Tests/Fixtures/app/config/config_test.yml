@@ -3,3 +3,10 @@ framework:
     secret: test
     session:
         storage_id: session.storage.mock_file
+
+
+services:
+    sb_event_queue.subscriber.example:
+        class: SymfonyBundles\EventQueueBundle\Tests\Service\EventSubscriber\ExampleSubscriber
+        tags:
+            - { name: kernel.event_listener, event: sb_event_queue.example, method: hashMessage }

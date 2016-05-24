@@ -3,8 +3,8 @@
 namespace SymfonyBundles\EventQueueBundle\Tests\Command\Daemon;
 
 use SymfonyBundles\EventQueueBundle\Command;
-use SymfonyBundles\EventQueueBundle\Event\ExampleEvent;
 use SymfonyBundles\EventQueueBundle\Tests\ConsoleTestCase;
+use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class StartCommandTest extends ConsoleTestCase
 {

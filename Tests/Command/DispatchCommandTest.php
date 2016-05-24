@@ -2,9 +2,9 @@
 
 namespace SymfonyBundles\EventQueueBundle\Tests\Command;
 
-use SymfonyBundles\EventQueueBundle\Event\ExampleEvent;
 use SymfonyBundles\EventQueueBundle\Tests\ConsoleTestCase;
 use SymfonyBundles\EventQueueBundle\Command\DispatchCommand;
+use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class DispatchCommandTest extends ConsoleTestCase
 {
