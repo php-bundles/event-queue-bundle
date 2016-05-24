@@ -55,6 +55,9 @@ sb_queue:
                 prefix: "sb_queue:"
 ```
 
+How to use
+----------
+
 [package-link]: https://packagist.org/packages/symfony-bundles/event-queue-bundle
 [license-link]: https://github.com/symfony-bundles/event-queue-bundle/blob/master/LICENSE
 [license-image]: https://poser.pugx.org/symfony-bundles/event-queue-bundle/license
