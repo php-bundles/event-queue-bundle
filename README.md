@@ -12,6 +12,7 @@ Symfony EventQueue Bundle
 
 Installation
 ------------
+
 * Require the bundle with composer:
 
 ``` bash
@@ -35,6 +36,7 @@ public function registerBundles()
 * Configure the EventQueue bundle in your config.yml.
 
 Defaults configuration:
+
 ``` yml
 sb_event_queue:
     service_name: "event_queue"
@@ -45,6 +47,7 @@ sb_event_queue:
 * Configure the redis client in your config.yml. Read more [QueueBundle Installation][queue-bundle-link].
 
 For example, defaults configuration:
+
 ``` yml
 sb_queue:
     server:
@@ -57,6 +60,120 @@ sb_queue:
 
 How to use
 ----------
+
+Add an event to the queue:
+
+``` php
+$dispatcher = $this->get('sb_event_queue');
+
+$dispatcher->on(MyEvent::class, date('Y-m-d H:i:s'), 'Example message');
+```
+
+Your event class must extending `Symfony\Component\EventDispatcher\Event` class
+and having constant `NAME` with the event name. For example:
+
+``` php
+namespace AppBundle\Event;
+
+use Symfony\Component\EventDispatcher\Event;
+
+class MyEvent extends Event
+{
+
+    const NAME = 'event.example';
+
+    private $time;
+    private $message;
+
+    public function __construct($time, $message)
+    {
+        $this->time = $time;
+        $this->message = $message;
+    }
+
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+}
+```
+
+Creating an Event Listener.
+The most common way to listen to an event is to register an event listener:
+
+``` php
+namespace AppBundle\EventListener;
+
+use AppBundle\Event\MyEvent;
+
+class MyListener
+{
+
+    public function onEventExample(MyEvent $event)
+    {
+        $event->getTime();
+        $event->getMessage();
+
+        // and we are doing something...
+    }
+
+}
+```
+
+Now that the class is created, you just need to register it as a service and notify Symfony that it is a "listener":
+
+``` yml
+services:
+    app.my_listener:
+        class: AppBundle\EventListener\MyListener
+        tags:
+            - { name: kernel.event_listener, event: event.example }
+```
+
+Execution (dispatching) of all events from the queue:
+
+``` php
+while ($dispatcher->count()) {
+    $dispatcher->dispatch();
+}
+```
+
+You can separate the events by section, specifying in event manager the needed section.
+
+``` php
+$dispatcher->setName('email.notifications');
+
+$dispatcher->on(EmailNotifyEvent::class, 'Subject', 'Message Body', ['john@domain.com', 'alex@domain.com']);
+$dispatcher->on(EmailNotifyEvent::class, 'Another subject', 'Another message Body', ['demo@domain.com']);
+
+$dispatcher->setName('database.reindex');
+
+$dispatcher->on(DatabaseReindexEvent::class, 'users');
+$dispatcher->on(DatabaseReindexEvent::class, 'orders');
+$dispatcher->on(DatabaseReindexEvent::class, 'products');
+```
+
+In this example, will be executed only an events from the section `email.notifications`:
+
+``` php
+$dispatcher->setName('email.notifications');
+
+while ($dispatcher->count()) {
+    $dispatcher->dispatch();
+}
+```
+
+Console commands:
+
+* `event:queue:dispatch`
+* `event:queue:daemon:start`
+* `event:queue:daemon:stop`
 
 [package-link]: https://packagist.org/packages/symfony-bundles/event-queue-bundle
 [license-link]: https://github.com/symfony-bundles/event-queue-bundle/blob/master/LICENSE
