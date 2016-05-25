@@ -12,7 +12,7 @@ build:
     tests:
         override:
             -
-                command: phpunit --coverage-clover ./logs/clover.xml
+                command: phpunit --coverage-clover ./clover.xml
                 coverage:
-                    file: logs/clover.xml
+                    file: clover.xml
                     format: clover
