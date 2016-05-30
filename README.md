@@ -53,7 +53,7 @@ sb_queue:
     server:
         redis:
             parameters:
-                - "tcp://localhost?alias=queue"
+                - "tcp://127.0.0.1?alias=queue"
             options:
                 prefix: "sb_queue:"
 ```
@@ -174,6 +174,13 @@ Console commands:
 * `event:queue:dispatch`
 * `event:queue:daemon:start`
 * `event:queue:daemon:stop`
+
+In what situations is useful to apply the queue of events:
+
+* When sending email messages
+* Parsing websites
+* and in other cases, when the execution time of process is very long,
+and the response from the server must be returned immediately.
 
 [package-link]: https://packagist.org/packages/symfony-bundles/event-queue-bundle
 [license-link]: https://github.com/symfony-bundles/event-queue-bundle/blob/master/LICENSE
