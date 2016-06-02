@@ -44,19 +44,7 @@ sb_event_queue:
     storage_path: "%kernel.cache_dir%/event-queue-daemon.%s.pid"
 ```
 
-* Configure the redis client in your config.yml. Read more [QueueBundle Installation][queue-bundle-link].
-
-For example, defaults configuration:
-
-``` yml
-sb_queue:
-    server:
-        redis:
-            parameters:
-                - "tcp://127.0.0.1?alias=queue"
-            options:
-                prefix: "sb_queue:"
-```
+* Configure the redis client in your config.yml. Read more about [RedisBundle configuration][redis-bundle-link].
 
 How to use
 ----------
@@ -195,4 +183,4 @@ and the response from the server must be returned immediately.
 [code-coverage-image]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/badges/coverage.png?b=master
 [scrutinizer-code-quality-link]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/?branch=master
 [scrutinizer-code-quality-image]: https://scrutinizer-ci.com/g/symfony-bundles/event-queue-bundle/badges/quality-score.png?b=master
-[queue-bundle-link]: https://github.com/symfony-bundles/queue-bundle#installation
+[redis-bundle-link]: https://github.com/symfony-bundles/redis-bundle#installation
