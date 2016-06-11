@@ -13,7 +13,7 @@ class EventQueueExtension extends ConfigurableExtension
     /**
      * {@inheritdoc}
      */
-    protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    protected function loadInternal(array $configs, ContainerBuilder $container)
     {
         $loader = new Loader\YamlFileLoader(
             $container, new FileLocator(__DIR__ . '/../Resources/config')
@@ -21,9 +21,9 @@ class EventQueueExtension extends ConfigurableExtension
 
         $loader->load('services.yml');
 
-        $container->setAlias($mergedConfig['service_name'], 'sb_event_queue');
-        $container->setParameter('sb_event_queue.default_name', $mergedConfig['default_name']);
-        $container->setParameter('sb_event_queue.storage_path', $mergedConfig['storage_path']);
+        $container->setAlias($configs['service_name'], 'sb_event_queue');
+        $container->setParameter('sb_event_queue.default_name', $configs['default_name']);
+        $container->setParameter('sb_event_queue.storage_path', $configs['storage_path']);
     }
 
     /**
