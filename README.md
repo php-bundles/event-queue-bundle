@@ -57,13 +57,14 @@ $dispatcher = $this->get('sb_event_queue');
 $dispatcher->on(MyEvent::class, date('Y-m-d H:i:s'), 'Example message');
 ```
 
-Your event class must extending `Symfony\Component\EventDispatcher\Event` class
+Your event class must implement `SymfonyBundles\EventQueueBundle\EventInterface`
+(or extending `SymfonyBundles\EventQueueBundle\Event` class)
 and having constant `NAME` with the event name. For example:
 
 ``` php
 namespace AppBundle\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use SymfonyBundles\EventQueueBundle\Event;
 
 class MyEvent extends Event
 {

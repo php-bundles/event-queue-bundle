@@ -2,9 +2,7 @@
 
 namespace SymfonyBundles\EventQueueBundle\Service;
 
-use SymfonyBundles\QueueBundle\Service\QueueInterface;
-
-interface DispatcherInterface extends QueueInterface
+interface DispatcherInterface
 {
 
     /**

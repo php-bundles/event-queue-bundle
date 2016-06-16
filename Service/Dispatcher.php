@@ -3,7 +3,7 @@
 namespace SymfonyBundles\EventQueueBundle\Service;
 
 use SymfonyBundles\QueueBundle\Service\Queue;
-use Symfony\Component\EventDispatcher\Event;
+use SymfonyBundles\EventQueueBundle\EventInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class Dispatcher extends Queue implements DispatcherInterface
@@ -33,8 +33,8 @@ class Dispatcher extends Queue implements DispatcherInterface
             throw new Exception\InvalidEventNameException($class);
         }
 
-        if (false === $reflection->isSubclassOf(Event::class)) {
-            throw new Exception\InvalidEventParentClassException($class);
+        if (false === $reflection->isSubclassOf(EventInterface::class)) {
+            throw new Exception\EventInterfaceImplementationException($class);
         }
 
         $this->push(['class' => $class, 'args' => $args]);
@@ -53,7 +53,7 @@ class Dispatcher extends Queue implements DispatcherInterface
         $class = new \ReflectionClass($queue['class']);
         $event = $class->newInstanceArgs($queue['args']);
 
-        return $this->dispatcher->dispatch($class->getConstant('NAME'), $event);
+        return $this->dispatcher->dispatch($event->getName(), $event);
     }
 
 }

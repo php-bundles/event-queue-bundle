@@ -2,9 +2,9 @@
 
 namespace SymfonyBundles\EventQueueBundle\Service\Exception;
 
-use Symfony\Component\EventDispatcher\Event;
+use SymfonyBundles\EventQueueBundle\EventInterface;
 
-class InvalidEventParentClassException extends \InvalidArgumentException
+class EventInterfaceImplementationException extends \InvalidArgumentException
 {
 
     /**
@@ -12,7 +12,7 @@ class InvalidEventParentClassException extends \InvalidArgumentException
      */
     public function __construct($message, $code = 0, \Exception $previous = null)
     {
-        $message = sprintf('Class "%s" must extending class "%s"', $message, Event::class);
+        $message = sprintf('Class "%s" must implement interface "%s"', $message, EventInterface::class);
 
         parent::__construct($message, $code, $previous);
     }

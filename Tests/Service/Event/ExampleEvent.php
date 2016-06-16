@@ -2,7 +2,7 @@
 
 namespace SymfonyBundles\EventQueueBundle\Tests\Service\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use SymfonyBundles\EventQueueBundle\Event;
 
 class ExampleEvent extends Event
 {

@@ -46,7 +46,7 @@ class DispatcherTest extends TestCase
 
     public function testInvalidEventParentClass()
     {
-        $this->expectException(Exception\InvalidEventParentClassException::class);
+        $this->expectException(Exception\EventInterfaceImplementationException::class);
 
         $this->dispatcher->on(Event\InvalidEventParentClass::class);
     }
