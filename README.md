@@ -1,5 +1,5 @@
-Symfony EventQueue Bundle
-=========================
+SymfonyBundlesEventQueueBundle
+==============================
 
 [![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
 
