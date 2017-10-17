@@ -6,7 +6,6 @@ use SymfonyBundles\EventQueueBundle\EventInterface;
 
 class EventInterfaceImplementationException extends \InvalidArgumentException
 {
-
     /**
      * {@inheritdoc}
      */
@@ -16,5 +15,4 @@ class EventInterfaceImplementationException extends \InvalidArgumentException
 
         parent::__construct($message, $code, $previous);
     }
-
 }

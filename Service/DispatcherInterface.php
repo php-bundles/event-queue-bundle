@@ -4,7 +4,6 @@ namespace SymfonyBundles\EventQueueBundle\Service;
 
 interface DispatcherInterface
 {
-
     /**
      * Adds an event listener to the queue.
      *
@@ -13,8 +12,6 @@ interface DispatcherInterface
      *
      * @throws Exception\InvalidEventNameException
      * @throws Exception\InvalidEventParentClassException
-     *
-     * @return void
      */
     public function on($class, ...$args);
 

@@ -39,9 +39,9 @@ Defaults configuration:
 
 ``` yml
 sb_event_queue:
-    service_name: "event_queue"
-    default_name: "event:default"
-    storage_path: "%kernel.cache_dir%/event-queue-daemon.%s.pid"
+    service_name: 'event_queue'
+    default_name: 'event:default'
+    storage_path: '%kernel.cache_dir%/event-queue-daemon.%s.pid'
 ```
 
 * Configure the redis client in your config.yml. Read more about [RedisBundle configuration][redis-bundle-link].
@@ -68,7 +68,6 @@ use SymfonyBundles\EventQueueBundle\Event;
 
 class MyEvent extends Event
 {
-
     const NAME = 'event.example';
 
     private $time;
@@ -89,7 +88,6 @@ class MyEvent extends Event
     {
         return $this->message;
     }
-
 }
 ```
 
@@ -103,7 +101,6 @@ use AppBundle\Event\MyEvent;
 
 class MyListener
 {
-
     public function onEventExample(MyEvent $event)
     {
         $event->getTime();
@@ -111,7 +108,6 @@ class MyListener
 
         // and we are doing something...
     }
-
 }
 ```
 

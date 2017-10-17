@@ -4,7 +4,6 @@ namespace SymfonyBundles\EventQueueBundle\Service\Exception;
 
 class InvalidEventNameException extends \InvalidArgumentException
 {
-
     /**
      * {@inheritdoc}
      */
@@ -14,5 +13,4 @@ class InvalidEventNameException extends \InvalidArgumentException
 
         parent::__construct($message, $code, $previous);
     }
-
 }

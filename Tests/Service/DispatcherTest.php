@@ -9,7 +9,6 @@ use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class DispatcherTest extends TestCase
 {
-
     /**
      * @var \SymfonyBundles\EventQueueBundle\Service\DispatcherInterface
      */
@@ -81,5 +80,4 @@ class DispatcherTest extends TestCase
 
         $this->assertSame(0, $this->dispatcher->count());
     }
-
 }

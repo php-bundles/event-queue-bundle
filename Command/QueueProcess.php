@@ -4,7 +4,6 @@ namespace SymfonyBundles\EventQueueBundle\Command;
 
 class QueueProcess
 {
-
     /**
      * @var string
      */
@@ -74,5 +73,4 @@ class QueueProcess
     {
         return $this->delete();
     }
-
 }

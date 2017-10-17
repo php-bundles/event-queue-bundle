@@ -7,10 +7,8 @@ use SymfonyBundles\EventQueueBundle\EventInterface;
 
 class InvalidEventName extends Event implements EventInterface
 {
-
     public function getName()
     {
         return 'invalid.event';
     }
-
 }

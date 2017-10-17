@@ -8,7 +8,6 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 abstract class ConsoleTestCase extends TestCase
 {
-
     /**
      * @var Application
      */
@@ -23,7 +22,7 @@ abstract class ConsoleTestCase extends TestCase
     {
         parent::setUp();
 
-        $this->app = new Application;
+        $this->app = new Application();
 
         $this->dispatcher = $this->container->get('sb_event_queue');
 
@@ -44,5 +43,4 @@ abstract class ConsoleTestCase extends TestCase
 
         return new CommandTester($command);
     }
-
 }

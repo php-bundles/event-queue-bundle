@@ -8,7 +8,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class Dispatcher extends Queue implements DispatcherInterface
 {
-
     /**
      * @var EventDispatcherInterface
      */
@@ -55,5 +54,4 @@ class Dispatcher extends Queue implements DispatcherInterface
 
         return $this->dispatcher->dispatch($event->getName(), $event);
     }
-
 }

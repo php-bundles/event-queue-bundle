@@ -4,7 +4,6 @@ namespace SymfonyBundles\EventQueueBundle;
 
 interface EventInterface
 {
-
     /**
      * Returns whether further event listeners should be triggered.
      *

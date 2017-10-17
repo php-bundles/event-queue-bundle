@@ -2,14 +2,13 @@
 
 namespace SymfonyBundles\EventQueueBundle\Command\Daemon;
 
-use SymfonyBundles\EventQueueBundle\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
+use SymfonyBundles\EventQueueBundle\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class StopCommand extends Command
 {
-
     /**
      * {@inheritdoc}
      */
@@ -28,5 +27,4 @@ class StopCommand extends Command
     {
         $this->process->kill();
     }
-
 }

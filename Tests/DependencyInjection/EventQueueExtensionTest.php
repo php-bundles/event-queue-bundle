@@ -9,11 +9,10 @@ use SymfonyBundles\EventQueueBundle\DependencyInjection\EventQueueExtension;
 
 class EventQueueExtensionTest extends TestCase
 {
-
     public function testHasServices()
     {
-        $container = new ContainerBuilder;
-        $extension = new EventQueueExtension;
+        $container = new ContainerBuilder();
+        $extension = new EventQueueExtension();
 
         $this->assertInstanceOf(Extension::class, $extension);
 
@@ -24,9 +23,8 @@ class EventQueueExtensionTest extends TestCase
 
     public function testAlias()
     {
-        $extension = new EventQueueExtension;
+        $extension = new EventQueueExtension();
 
         $this->assertStringEndsWith('event_queue', $extension->getAlias());
     }
-
 }

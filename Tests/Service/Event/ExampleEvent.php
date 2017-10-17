@@ -6,7 +6,6 @@ use SymfonyBundles\EventQueueBundle\Event;
 
 class ExampleEvent extends Event
 {
-
     /**
      * @var string
      */
@@ -32,5 +31,4 @@ class ExampleEvent extends Event
     {
         return $this->message;
     }
-
 }

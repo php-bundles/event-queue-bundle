@@ -7,7 +7,6 @@ use SymfonyBundles\EventQueueBundle\Tests\ConsoleTestCase;
 
 class QueueProcessTest extends ConsoleTestCase
 {
-
     public function testExecute()
     {
         $process = $this->getProcess();
@@ -22,7 +21,7 @@ class QueueProcessTest extends ConsoleTestCase
 
     private function getProcess()
     {
-        $process = new QueueProcess;
+        $process = new QueueProcess();
         $path = $this->container->getParameter('sb_event_queue.storage_path');
 
         $process->setPath($path);
@@ -30,5 +29,4 @@ class QueueProcessTest extends ConsoleTestCase
 
         return $process;
     }
-
 }
