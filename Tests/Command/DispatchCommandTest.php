@@ -8,10 +8,9 @@ use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class DispatchCommandTest extends ConsoleTestCase
 {
-
     public function testConfigure()
     {
-        $command = new DispatchCommand;
+        $command = new DispatchCommand();
 
         $this->assertSame('event:queue:dispatch', $command->getName());
     }
@@ -24,11 +23,10 @@ class DispatchCommandTest extends ConsoleTestCase
 
         $this->assertSame(3, $this->dispatcher->count());
 
-        $tester = $this->createTester(new DispatchCommand, 'event:queue:dispatch');
+        $tester = $this->createTester(new DispatchCommand(), 'event:queue:dispatch');
 
         $tester->execute(['--name' => 'unit-test']);
 
         $this->assertSame(0, $this->dispatcher->count());
     }
-
 }

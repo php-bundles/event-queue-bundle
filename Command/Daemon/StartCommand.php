@@ -2,15 +2,14 @@
 
 namespace SymfonyBundles\EventQueueBundle\Command\Daemon;
 
-use SymfonyBundles\EventQueueBundle\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
+use SymfonyBundles\EventQueueBundle\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class StartCommand extends Command
 {
-
     /**
      * {@inheritdoc}
      */
@@ -37,7 +36,7 @@ class StartCommand extends Command
         $this->process->save();
 
         while ($this->process->has()) {
-            $iterations--;
+            --$iterations;
 
             $dispatcher->run($dispatcherInput, $output);
 
@@ -48,5 +47,4 @@ class StartCommand extends Command
             }
         }
     }
-
 }

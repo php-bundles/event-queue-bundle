@@ -6,7 +6,6 @@ use Symfony\Component\EventDispatcher\Event as BaseEvent;
 
 abstract class Event extends BaseEvent implements EventInterface
 {
-
     /**
      * @var string
      */
@@ -19,5 +18,4 @@ abstract class Event extends BaseEvent implements EventInterface
     {
         return static::NAME;
     }
-
 }

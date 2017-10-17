@@ -7,12 +7,10 @@ use SymfonyBundles\EventQueueBundle\Command\Daemon\StopCommand;
 
 class StopCommandTest extends ConsoleTestCase
 {
-
     public function testConfigure()
     {
-        $command = new StopCommand;
+        $command = new StopCommand();
 
         $this->assertEquals('event:queue:daemon:stop', $command->getName());
     }
-
 }

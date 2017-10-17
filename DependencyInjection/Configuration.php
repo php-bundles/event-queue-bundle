@@ -9,7 +9,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 class Configuration implements ConfigurationInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -69,5 +68,4 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
     }
-
 }

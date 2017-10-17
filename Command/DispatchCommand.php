@@ -8,7 +8,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class DispatchCommand extends Command
 {
-
     /**
      * {@inheritdoc}
      */
@@ -36,5 +35,4 @@ class DispatchCommand extends Command
             $dispatcher->dispatch();
         }
     }
-
 }

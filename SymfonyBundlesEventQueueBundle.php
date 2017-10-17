@@ -8,7 +8,6 @@ use SymfonyBundles\BundleDependency\BundleDependencyInterface;
 
 class SymfonyBundlesEventQueueBundle extends Bundle implements BundleDependencyInterface
 {
-
     use BundleDependency;
 
     /**
@@ -25,8 +24,7 @@ class SymfonyBundlesEventQueueBundle extends Bundle implements BundleDependencyI
     public function getBundleDependencies()
     {
         return [
-            \SymfonyBundles\QueueBundle\SymfonyBundlesQueueBundle::class
+            \SymfonyBundles\QueueBundle\SymfonyBundlesQueueBundle::class,
         ];
     }
-
 }

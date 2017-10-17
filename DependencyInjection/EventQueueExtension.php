@@ -9,7 +9,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class EventQueueExtension extends ConfigurableExtension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -39,5 +38,4 @@ class EventQueueExtension extends ConfigurableExtension
     {
         return 'sb_event_queue';
     }
-
 }

@@ -1,16 +1,23 @@
 language: php
-
 sudo: false
-
-cache:
-    directories:
-        - $HOME/.composer/cache
 
 php:
     - 5.6
     - 7.0
-    - hhvm
-    - nightly
+    - 7.1
+    - 7.2
+
+env:
+    - SYMFONY_VERSION=2.7.*
+    - SYMFONY_VERSION=2.8.*
+    - SYMFONY_VERSION=3.0.*
+    - SYMFONY_VERSION=3.1.*
+    - SYMFONY_VERSION=3.2.*
+    - SYMFONY_VERSION=3.3.*
+
+cache:
+    directories:
+        - $HOME/.composer/cache
 
 services:
     - redis-server
@@ -27,21 +34,3 @@ install:
 
 script:
     - phpunit
-
-matrix:
-    fast_finish: true
-    include:
-        - php: 5.6
-          env: SYMFONY_VERSION=2.7.*
-        - php: 5.6
-          env: SYMFONY_VERSION=2.8.*
-        - php: 5.6
-          env: SYMFONY_VERSION=3.0.*
-        - php: 7.0
-          env: SYMFONY_VERSION=3.0.*
-    allow_failures:
-        - php: hhvm
-        - php: nightly
-
-notifications:
-    email: false

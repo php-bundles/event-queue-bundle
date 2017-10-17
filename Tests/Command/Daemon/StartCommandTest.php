@@ -8,10 +8,9 @@ use SymfonyBundles\EventQueueBundle\Tests\Service\Event\ExampleEvent;
 
 class StartCommandTest extends ConsoleTestCase
 {
-
     public function testConfigure()
     {
-        $command = new Command\Daemon\StartCommand;
+        $command = new Command\Daemon\StartCommand();
 
         $this->assertEquals('event:queue:daemon:start', $command->getName());
     }
@@ -24,21 +23,20 @@ class StartCommandTest extends ConsoleTestCase
 
         $this->assertSame(3, $this->dispatcher->count());
 
-        $this->createTester(new Command\DispatchCommand, 'event:queue:dispatch');
+        $this->createTester(new Command\DispatchCommand(), 'event:queue:dispatch');
 
-        $start = $this->createTester(new Command\Daemon\StartCommand, 'event:queue:daemon:start');
+        $start = $this->createTester(new Command\Daemon\StartCommand(), 'event:queue:daemon:start');
 
         $start->execute([
-            '--name'       => 'unit-test',
-            '--delay'      => 0,
-            '--iterations' => 1
+            '--name' => 'unit-test',
+            '--delay' => 0,
+            '--iterations' => 1,
         ]);
 
         $this->assertSame(0, $this->dispatcher->count());
 
-        $stop = $this->createTester(new Command\Daemon\StopCommand, 'event:queue:daemon:stop');
+        $stop = $this->createTester(new Command\Daemon\StopCommand(), 'event:queue:daemon:stop');
 
         $stop->execute(['--name' => 'unit-test']);
     }
-
 }
